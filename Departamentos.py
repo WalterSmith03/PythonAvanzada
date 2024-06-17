@@ -12,7 +12,8 @@ if ingresada == contrasena:
 else:
 
     print("Contraseña incorrecta. Acceso denegado.")
-    
+    exit()
+
 departamentos = {
     "Cortés": {
         "San Pedro Sula": "0501",
@@ -150,6 +151,7 @@ departamentos = {
         "Duyure": "0604",
         "El Corpus": "0605",
         "El Triunfo": "0606",
+        
     },
     
     "Santa Bárbara": {
@@ -358,36 +360,52 @@ departamentos = {
     }
 }
 
-
 def calcular_edad(dni):
     return 2024 - int(dni[4:8])
 
-
 def imprimir_resultados():
-    
-    nombre = input("Ingrese su nombre: ")
+    nombre = input("Por favor ingresar el nombre del ciudadano: ")
     print("")
     dni = input("Ingrese su código de DNI: ")
     
-  
     codigo_municipio = dni[:4]
     
-   
     for departamento, municipios in departamentos.items():
         for municipio, codigo in municipios.items():
             if codigo == codigo_municipio:
                 nombre_municipio = municipio
                 break
     
-    
     edad = calcular_edad(dni)
     
-   
     print("")
-    print(f"Nombre del Usuario: {nombre}")
+    print(f"El nombre del ciudadano es: {nombre}")
     print(f"El DNI ingresado corresponde al municipio de: {nombre_municipio}")
     print(f"Edad: {edad} años")
     print("")
 
-
-imprimir_resultados()
+while True:
+    print("\nMenu:")
+    print("1. Inspeccionar los departamentos")
+    print("2. Inspeccionar los municipios")
+    print("3. Salir")
+    print("")
+    opcion = input("Seleccione una opción: ")
+    
+    if opcion == "1":
+        print("")
+        departamento = input("Ingrese el nombre del departamento: ")
+        if departamento in departamentos:
+            print("\nMunicipios del departamento:")
+            print("")
+            for municipio, codigo in departamentos[departamento].items():
+                print(f"{municipio} - {codigo}")
+        else:
+            print("Departamento no encontrado.")
+    elif opcion == "2":
+        imprimir_resultados() 
+    elif opcion == "3":
+        print("Saliendo...")
+        break
+    else:
+        print("Opcion no válida. Por favor, seleccione una opción del menú.")

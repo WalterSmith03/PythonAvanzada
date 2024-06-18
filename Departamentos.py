@@ -359,31 +359,42 @@ departamentos = {
         "Yorito": "1811",
     }
 }
-
+# Define una función "calcular_edad(dni)" que calcula la edad de una persona basado en su año de nacimiento, extraído del DNI (posiciones 4 a 8 del string).
 def calcular_edad(dni):
     return 2024 - int(dni[4:8])
 
+
+# Define la función imprimir_resultados() que:
+
+# Solicita el nombre del ciudadano y su DNI.
 def imprimir_resultados():
     nombre = input("Por favor ingresar el nombre del ciudadano: ")
     print("")
     dni = input("Ingrese su código de DNI: ")
-    
+
+# Extrae el código del municipio (los primeros 4 caracteres del DNI). 
     codigo_municipio = dni[:4]
     
+# Busca el municipio correspondiente en el diccionario departamentos.
     for departamento, municipios in departamentos.items():
         for municipio, codigo in municipios.items():
             if codigo == codigo_municipio:
                 nombre_municipio = municipio
                 break
     
+# Calcula la edad del ciudadano.
     edad = calcular_edad(dni)
     
+# Imprime el nombre del ciudadano, el municipio correspondiente y su edad.
     print("")
     print(f"El nombre del ciudadano es: {nombre}")
     print(f"El DNI ingresado corresponde al municipio de: {nombre_municipio}")
     print(f"Edad: {edad} años")
     print("")
 
+
+
+# Inicia un bucle while True: que muestra un menú con tres opciones:
 while True:
     print("\nMenu:")
     print("1. Inspeccionar los departamentos")
@@ -392,6 +403,7 @@ while True:
     print("")
     opcion = input("Seleccione una opción: ")
     
+# Opción 1: Solicita el nombre de un departamento y muestra sus municipios y códigos.
     if opcion == "1":
         print("")
         departamento = input("Ingrese el nombre del departamento: ")
@@ -402,8 +414,12 @@ while True:
                 print(f"{municipio} - {codigo}")
         else:
             print("Departamento no encontrado.")
+    
+# Opción 2: Llama a la función imprimir_resultados().
     elif opcion == "2":
         imprimir_resultados() 
+    
+# Opción 3: Sale del bucle y finaliza el programa.
     elif opcion == "3":
         print("Saliendo...")
         break

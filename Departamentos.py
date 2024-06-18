@@ -392,14 +392,42 @@ def imprimir_resultados():
     print(f"Edad: {edad} años")
     print("")
 
+# Define la función calcular_promedio() que:
 
+# Solicita las calificaciones del usuario.
+def calcular_promedio():
+    calificaciones = []
+    for _ in range(3):
+        print("")
+        calificacion = float(input("Ingrese la calificación: "))
+        calificaciones.append(calificacion)
+    promedio = sum(calificaciones) / len(calificaciones)
+    if promedio >= 95:
+        print("")
+        print(f"El promedio es de {promedio:.2f}. FELICIDADES alcanzaste la Excelencia academica.")
+    else:
+        print("")
+        print(f"El promedio es de {promedio:.2f}. No es de excelencia académica.")
 
-# Inicia un bucle while True: que muestra un menú con tres opciones:
+# Define la función imprimir_numeros_impares() que:
+
+# Solicita un número entero positivo del usuario.
+def imprimir_numeros_impares():
+    print("")
+    numero = int(input("Ingrese un número entero positivo: "))
+    print("\nNumeros impares desde 1 hasta", numero, ":")
+    for i in range(1, numero + 1):
+        if i % 2 != 0:
+            print(i)
+
+# Inicia un bucle while True: que muestra un menú con cinco opciones:
 while True:
     print("\nMenu:")
     print("1. Inspeccionar los departamentos")
     print("2. Inspeccionar los municipios")
-    print("3. Salir")
+    print("3. EJERCICIO 8 EXAMEN")
+    print("4. EJERCICIO 18 EXAMEN")
+    print("5. Salir")
     print("")
     opcion = input("Seleccione una opción: ")
     
@@ -418,9 +446,17 @@ while True:
 # Opción 2: Llama a la función imprimir_resultados().
     elif opcion == "2":
         imprimir_resultados() 
-    
-# Opción 3: Sale del bucle y finaliza el programa.
+
+# Opción 3: Llama a la función calcular_promedio().
     elif opcion == "3":
+        calcular_promedio()
+
+
+    elif opcion == "4":
+        imprimir_numeros_impares()
+
+
+    elif opcion == "5":
         print("Saliendo...")
         break
     else:

@@ -451,11 +451,11 @@ while True:
     elif opcion == "3":
         calcular_promedio()
 
-
+# Opción 4: Llama a la función imprimir_numeros_impares().
     elif opcion == "4":
         imprimir_numeros_impares()
 
-
+# Opción 5: Salir del programa.
     elif opcion == "5":
         print("Saliendo...")
         break
